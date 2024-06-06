@@ -1,0 +1,136 @@
+care serves
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Care</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://example.com/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        header {
+            width: 100%;
+            background-color: red;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: red;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: darkred;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background-color: red;
+            padding: 0;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        nav ul li ul li {
+            width: 200px;
+        }
+        nav ul li ul li a {
+            padding: 10px 20px;
+        }
+        #lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            border: 1px solid red;
+            color: red;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="header-en">Services Care</h1>
+        <h1 id="header-ar" style="display: none;">خدمات الرعاية</h1>
+        <button id="lang-switch" onclick="toggleLanguage()">عربي</button>
+    </header>
+    <nav>
+        <ul id="menu-en">
+            <li><a href="#">Homepage</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li>
+                <a href="#">Request a Service</a>
+                <ul>
+                    <li><a href="#">Room Reservation</a></li>
+                    <li><a href="#">Flight Ticket Reservation</a></li>
+                    <li><a href="#">Train Ticket Reservation</a></li>
+                    <li><a href="#">Car Rental</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul id="menu-ar" style="display: none; direction: rtl;">
+            <li><a href="#">الصفحة الرئيسية</a></li>
+            <li><a href="#">من نحن</a></li>
+            <li><a href="#">التسعير</a></li>
+            <li>
+                <a href="#">طلب خدمة</a>
+                <ul>
+                    <li><a href="#">حجز غرفة</a></li>
+                    <li><a href="#">حجز تذكرة طيران</a></li>
+                    <li><a href="#">حجز تذكرة قطار</a></li>
+                    <li><a href="#">تأجير سيارة</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleLanguage() {
+            var headerEn = document.getElementById('header-en');
+            var headerAr = document.getElementById('header-ar');
+            var menuEn = document.getElementById('menu-en');
+            var menuAr = document.getElementById('menu-ar');
+            var langSwitch = document.getElementById('lang-switch');
+
+            if (headerEn.style.display === 'none') {
+                headerEn.style.display = 'block';
+                headerAr.style.display = 'none';
+                menuEn.style.display = 'flex';
+                menuAr.style.display = 'none';
+                langSwitch.textContent = 'عربي';
+            } else {
+                headerEn.style.display = 'none';
+                headerAr.style.display = 'block';
+                menuEn.style.display = 'none';
+                menuAr.style.display = 'flex';
+                langSwitch.textContent = 'English';
+            }
+        }
+    </script>
+</body>
+</html>
